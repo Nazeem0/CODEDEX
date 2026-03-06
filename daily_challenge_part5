@@ -1,0 +1,59 @@
+# Alysa Liu ⛸️
+# March 6, 2026
+#
+# Last week at the 2026 Winter Olympics, Alysa Liu became an international sensation,
+# winning two gold medals and ending a 24-year Olympic gold drought for the U.S.
+# in women’s figure skating. Her dazzling free skate earned her top scores,
+# and her presence lit up the rink.
+#
+# But how does figure skating scoring actually work? It's pretty complex!
+#
+# There are three parts:
+# 1. Technical Element Score (TES)
+# 2. Program Component Score
+# 3. Deductions
+#
+# In this challenge we calculate only the Technical Element Score (TES).
+#
+# Rules:
+# - Each skating element (jump, spin, step sequence) has a base value.
+# - 9 judges give a Grade of Execution (GOE) from -5 to 5.
+# - To reduce bias, the highest and lowest GOE are removed.
+# - The remaining 7 scores are averaged.
+#
+# Element Score Formula:
+# Element Score = Base Value + (Average GOE × 0.1 × Base Value)
+#
+# The Technical Element Score (TES) is the sum of all element scores.
+#
+# Finally, round the TES to one decimal place.
+#
+# Example Input:
+# elements = [
+#   ("Triple Flip", 9.7, [3,2,3,3,2,4,3,2,3]),
+#   ("Triple Lutz+Toe Combo", 12.5, [4,5,4,5,5,4,4,3,4]),
+#   ("Triple Salchow", 7.0, [2,3,2,2,3,2,2,3,2]),
+#   ("Triple Loop", 6.0, [3,3,2,4,3,3,2,3,2]),
+#   ("Step Sequence", 3.3, [4,4,4,4,3,3,4,3,4])
+# ]
+#
+# Expected Output:
+# 50.9
+
+
+CODE-------
+
+  def calculate_score(elements):
+  Element_Score=[]
+	  # Write code below 💖
+  for i in range(len(elements)):
+	  bias=remove_min_max(elements[i][2])
+	  Average_GOE=sum(bias)/7
+	  Element_Score.append(elements[i][1]+(Average_GOE*0.1*elements[i][1]))
+  TES=sum(Element_Score)
+  return round(TES,1)
+	      
+def remove_min_max(scores):
+	scores.remove(max(scores))
+	scores.remove(min(scores))	  
+	return scores
