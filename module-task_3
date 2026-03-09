@@ -1,0 +1,173 @@
+# Countdown
+# Create Your Own Module
+
+# Modules are basically Python files (.py) that contain code such as variables,
+# functions, or class definitions. These files can be imported into other Python
+# files so that the code can be reused instead of rewriting it again.
+
+# For example, suppose we created a file called calculator.py that contains
+# several math functions such as add(), subtract(), multiply(), divide(), and exp().
+
+# We can import this file into another Python file using the import keyword.
+
+import calculator
+import datetime
+
+# Once imported, the functions inside the module can be accessed using dot notation.
+# Dot notation means writing the module name first, followed by a dot, and then
+# the function name we want to use.
+
+calculator.add(3, 4)        # Returns 7
+calculator.subtract(3, 4)   # Returns -1
+calculator.multiply(3, 4)   # Returns 12
+calculator.divide(3, 4)     # Returns 0.75
+calculator.exp(3, 4)        # Returns 81
+
+# Note:
+# The calculator.py file and the file importing it must be located in the same folder
+# so that Python can find and load the module correctly.
+
+# datetime Module
+
+# The datetime module is a built-in Python module used for working with
+# dates and times. Just like the random module, it comes preinstalled
+# with Python and only needs to be imported to use it.
+
+# Modules can contain functions, classes, and variables.
+# The datetime module includes a class called date which represents a specific date.
+
+# The date object requires three values:
+# year  → integer from 1 to 9999
+# month → integer from 1 to 12
+# day   → integer based on the number of days in that month
+
+# The syntax to create a date object is:
+# datetime.date(year, month, day)
+
+import datetime
+
+# Example: creating a date object for Python's release date
+release_date = datetime.date(1991, 2, 20)
+
+# Printing the date object displays the date in YYYY-MM-DD format.
+print(release_date)     # Output: 1991-02-20
+
+# Notice that if the month or day is a single digit, Python automatically
+# adds a leading zero to keep the format consistent.
+
+# The date object also has properties such as .year, .month, and .day
+# which allow us to access individual parts of the date.
+
+print(f'Python was released in {release_date.year}.')
+# Output: Python was released in 1991.
+
+# Getting the current date
+
+# The datetime module provides a method called today()
+# which returns today's date.
+
+datetime.date.today()
+
+# Exercise Explanation
+
+# In this exercise we use two modules: datetime and random.
+# The goal is to create a simple birthday card program that
+# calculates how many days remain until your next birthday.
+
+# We will create two Python files:
+# 1. bday_messages.py
+# 2. main.py
+
+# bday_messages.py
+
+# In this file we:
+# 1. Import the random module.
+# 2. Create a list containing several birthday messages.
+# 3. Use random.choice() to select one random message from the list.
+# 4. Store that selected message in a variable called random_message.
+
+# main.py
+
+# In the main file we:
+# 1. Import the datetime module.
+# 2. Import the bday_messages module that we created.
+
+# Example import:
+# import datetime, bday_messages
+
+# Next, we create two date objects.
+
+# today → stores today's date using datetime.date.today()
+# next_birthday → stores the date of your next birthday
+# using the format datetime.date(year, month, day)
+
+# One interesting feature of date objects is that they support
+# subtraction and addition.
+
+# When we subtract two date objects, Python returns the
+# time difference between them.
+
+# Example:
+# time_difference = date1 - date2
+
+# In this exercise we subtract today's date from the next birthday
+# to calculate how many days remain until the birthday.
+
+# The result is stored in a variable called days_away.
+
+# Then we create a conditional statement.
+
+# If today's date is the same as the birthday date:
+# → print the random birthday message.
+
+# Otherwise:
+# → print how many days remain until the birthday.
+
+# Example output:
+# My next birthday is 42 days away!
+
+# Bonus Idea
+
+# Instead of calculating days until a future birthday,
+# we could also calculate how many days have passed since
+# an important event.
+
+# For example:
+# • the release date of a favorite movie
+# • the launch date of a video game
+# • your own birth date
+
+# We could also expand the program to calculate how many
+# months or years have passed since that event.
+
+
+
+---CODE---
+#bday_messages module definition
+import random
+
+bday_messages = [
+    'Hope you have a very Happy Birthday! 🎈',
+    "It's your special day – get out there and celebrate! 🎉",
+    'You were born and the world got better – everybody wins! 🥳',
+    'Have lots of fun on your special day! 🎂',
+    'Another year of you going around the sun! 🌞'
+]
+
+random_message = random.choice(bday_messages)
+
+--main function----
+
+import datetime
+import bday_messages
+
+today = datetime.date.today()
+
+next_birthday = datetime.date(2026, 12, 25)   # change to your birthday
+
+days_away = (next_birthday - today).days
+
+if today == next_birthday:
+    print(bday_messages.random_message)
+else:
+    print(f"My next birthday is {days_away} days away!")

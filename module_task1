@@ -1,0 +1,154 @@
+# Modules
+# This topic explains what modules are in Python.
+
+# Introduction to the final chapter of The Legend of Python course.
+# This chapter focuses on understanding and using modules.
+# 🐍 emoji represents Python.
+
+# Welcome to the final chapter of The Legend of Python!
+
+# Explanation that we will study modules in detail.
+# Modules help organize and reuse code.
+
+# A module is simply a Python file that ends with .py.
+# Usually it contains related functions, classes, and statements.
+
+# Python already includes many built-in modules that programmers can use.
+
+# By default Python has more than 200 built-in modules.
+
+# Examples of common Python modules:
+
+# random → used to generate random numbers or selections.
+# math → used for mathematical calculations like square roots.
+# datetime → used for handling dates and time.
+
+# Modules are useful because they provide ready-made tools.
+# Without modules we would need to write all these functions ourselves.
+
+# In this chapter we will first learn to use built-in modules
+# and later we may create our own modules.
+
+# -------------------------------------------------------------
+
+# Random Choices
+# This section explains how to use the random module.
+
+# We already used the random module earlier in the course.
+
+# For example, we used randint() in the Magic 8 Ball program
+# to generate a random number.
+
+# The random module actually contains many methods (around 22).
+
+# Example showing how the choices() method works.
+
+import random  # Import the random module so we can use its functions
+
+dice = [1, 2, 3, 4, 5, 6]  # Create a list representing the sides of a dice
+
+print(random.choices(dice))  # Randomly select one value from the list
+
+# Explanation:
+# The import keyword allows us to access a module.
+
+# choices() randomly selects an item from a list.
+
+# By default choices() returns one item in a list.
+
+# We can also select multiple items using the parameter k.
+
+import random  # Import the module again (if not already imported)
+
+dice = [1, 2, 3, 4, 5, 6]  # List of dice values
+
+print(random.choices(dice, k=3))  # Randomly select 3 values from the list
+
+# The result will be a list containing three randomly chosen numbers.
+
+# Each time the program runs, the result may be different.
+
+# Important note:
+# The k parameter only controls the number of items returned.
+# The same value may appear more than once in the list.
+
+# -------------------------------------------------------------
+
+# Multiple Modules
+# This section explains how to import more than one module.
+
+# Method 1: Import modules using separate lines.
+
+import random  # Import random module
+import math    # Import math module
+
+# Rest of the program code goes here.
+
+# Method 2: Import multiple modules in one line.
+
+import random, math  # Import both modules together
+
+# Rest of the program code goes here.
+
+# Both methods work the same way in Python.
+
+# -------------------------------------------------------------
+
+# Instructions
+# Now we will create a simple slot machine program.
+
+# Short history:
+# The first gambling machine appeared in Brooklyn around 1891.
+# Players inserted a nickel and pulled a lever.
+# If the result showed a good poker hand, they won a free beer.
+# This machine eventually evolved into the modern slot machine.
+
+# Task:
+# Create a Python file named slot_machine.py.
+
+# The slot machine will display three random symbols.
+
+# The symbols include fruit emojis and the number seven.
+
+# If all three symbols are '7️⃣', the player wins the jackpot.
+
+# -------------------------------------------------------------
+
+# Final Program Output
+
+# Step 1:
+# Create a list named symbols containing these items:
+# '🍒', '🍇', '🍉', '7️⃣'
+
+# Step 2:
+# Use random.choices() to randomly select 3 symbols
+# and store them in a variable called results.
+
+# Remember to import the random module at the top of the file.
+
+# Step 3:
+# Print the symbols separated by the pipe symbol |.
+
+# Example output:
+# 🍉 | 🍒 | 🍇
+
+# Step 4:
+# Use an if/else condition.
+
+# If all items in results are '7️⃣'
+# print "Jackpot! 💰"
+
+# Otherwise
+# print "Thanks for playing!"
+
+
+
+------------ CODE----------
+import random
+symbols=['🍒',' 🍇', '🍉', '7️⃣']
+result=random.choices(symbols,k=3)
+print(" | ".join(map(str, result)))
+if result ==["7️⃣","7️⃣","7️⃣"] :
+  print("Jackpot! 💰")
+else:
+  print("Thanks for playing")
