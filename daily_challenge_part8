@@ -1,0 +1,134 @@
+# Sputnik 9 🚀
+# This problem is inspired by the Space Race during the Cold War between
+# the United States and the Soviet Union to achieve advancements in spaceflight.
+
+# On March 9, 1961, the Soviet Union launched Sputnik 9.
+# It was a test mission before sending the first human into space.
+
+# The spacecraft carried:
+# - A mannequin named Ivan Ivanovich (similar to "John Doe")
+# - A black dog named Chernushka
+# - Several mice
+# - A guinea pig
+# All of them safely completed one orbit and returned to Earth.
+
+# The animals were placed in a separate capsule which landed safely using a parachute.
+
+# The Earth's atmosphere has five layers. Each layer has a different
+# descent speed because air density increases as the capsule moves downward.
+
+# Exosphere (700–10,000 km)
+# - Descent speed: 2000 m/s
+# - Very thin air, almost vacuum.
+
+# Thermosphere (85–700 km)
+# - Descent speed: 500 m/s
+# - Thin air with minimal drag.
+
+# Mesosphere (50–85 km)
+# - Descent speed: 200 m/s
+# - Air becomes thicker, meteors burn here.
+
+# Stratosphere (12–50 km)
+# - Descent speed: 75 m/s
+# - Contains the ozone layer.
+
+# Troposphere (0–12 km)
+# - Descent speed: 20 m/s
+# - Densest layer where parachutes deploy.
+
+# Sputnik 9 reentered the atmosphere at about 200 km altitude,
+# which is inside the thermosphere.
+
+# As the capsule descends through each atmospheric layer,
+# the air becomes denser and the descent speed decreases.
+
+# Problem task:
+# Given a starting altitude (in kilometers),
+# calculate the total time it takes for the capsule to reach the ground.
+
+# The final answer should be returned in seconds
+# and rounded to one decimal place.
+
+# Example 1
+# Input: 200 km
+# Output: 1511.7 seconds
+# Breakdown:
+# Thermosphere: 230.0 s
+# Mesosphere: 175.0 s
+# Stratosphere: 506.7 s
+# Troposphere: 600.0 s
+
+# Example 2
+# Input: 12 km
+# Output: 600.0 seconds
+# Only the Troposphere layer is involved.
+
+
+---CODE-----
+def calculate_descent(altitude):
+  # Write code below 💖
+    altitude1 = altitude*1000
+    list=[]
+
+    if (700*1000) <= altitude1 <= (10000*1000):
+        distance=altitude1-(700*1000)
+        time=distance/2000
+        list.append(time)
+        distance=(700*1000)-(85*1000)
+        time=distance/500
+        list.append(time)
+        distance=(85*1000)-(50*1000)
+        time=distance/200
+        list.append(time)
+        distance=(50*1000)-(12*1000)
+        time=distance/75
+        list.append(time)
+        distance=(12*1000)-0
+        time=distance/20
+        list.append(time)
+        result=sum(list)
+
+    elif (85*1000) <= altitude1 < (700*1000):
+        distance=altitude1-(85*1000)
+        time=distance/500
+        list.append(time)
+        distance=(85*1000)-(50*1000)
+        time=distance/200
+        list.append(time)
+        distance=(50*1000)-(12*1000)
+        time=distance/75
+        list.append(time)
+        distance=(12*1000)-0
+        time=distance/20
+        list.append(time)
+        result=sum(list)        
+
+    elif 50*1000 <= altitude1 < 85*1000:
+        distance=altitude1-(50*1000)
+        time=distance/200
+        list.append(time)
+        distance=(50*1000)-(12*1000)
+        time=distance/75
+        list.append(time)
+        distance=(12*1000)-0
+        time=distance/20
+        list.append(time)
+        result=sum(list) 
+        
+    elif (12*1000) <= altitude1 < (50*1000):
+        distance=altitude1-(12*1000)
+        time=distance/75
+        list.append(time)
+        distance=(12*1000)-0
+        time=distance/20
+        list.append(time)
+        result=sum(list) 
+        
+    elif 0 <= altitude1 < (12*1000):
+        distance=altitude1-0
+        time=distance/20
+        list.append(time)
+        result=sum(list) 
+    return round(result,1)   
+     
