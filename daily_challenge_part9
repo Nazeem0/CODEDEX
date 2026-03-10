@@ -1,0 +1,70 @@
+# Ring Ring ☎️
+# March 10, 2026
+# Introduction to a story about the invention of the telephone.
+
+# Alexander Graham Bell, inventor of the first practical telephone,
+# once wrote a letter to his father predicting the future of communication.
+
+# "The day is coming when telegraph wires will be laid on to houses
+# just like water or gas – and friends converse with each other
+# without leaving home".
+# Bell imagined a future where people could communicate from home
+# using wired communication systems, similar to utilities.
+
+# On March 10, 1876 (150 years ago), Bell successfully transmitted
+# the first message ever sent through a telephone.
+
+# He spoke to his assistant Thomas Watson and said:
+# "Mr. Watson, come here, I want to see you."
+# This became the first telephone message in history.
+
+# Today's Daily Challenge is about analyzing phone call transcripts.
+
+# Task:
+# Write a function that counts the number of unique words
+# in a phone call transcript.
+
+# Rules:
+# 1. Words are separated by spaces.
+# 2. Ignore punctuation (commas, periods, etc.).
+# 3. Treat uppercase and lowercase words as the same.
+
+# Example 1
+# Input: "Mr. Watson, come here, I want to see you."
+# Output: 9
+# Explanation: There are 9 unique words after removing punctuation
+# and ignoring capitalization.
+
+# Example 2
+# Input: "Hello Neil and Buzz, I am talking to you by telephone from
+# the Oval Room at the White House, and this certainly has to be
+# the most historic telephone call ever made."
+# Output: 27
+# Explanation: Words like "the", "and", "to", and "telephone"
+# appear multiple times but are counted only once.
+
+# Fun Fact:
+# Alexander Graham Bell co-founded AT&T in 1885,
+# which is now one of the largest telecom companies in the world.
+
+# Fun Fact #2:
+# Bell preferred the greeting "Ahoy" for answering phones,
+# but Thomas Edison promoted "Hello", which eventually
+# became the standard greeting worldwide.
+
+
+
+  
+----CODE-----
+import string
+
+def find_unique_words(transcript):
+    transcript = transcript.lower()
+
+    for p in string.punctuation:
+        transcript = transcript.replace(p, "")
+
+    words = transcript.split()
+
+    return len(set(words))
+
