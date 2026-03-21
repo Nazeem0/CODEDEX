@@ -1,0 +1,58 @@
+First Tweet 🐦
+March 21, 2026
+·
+5
+0
+
+On March 21, 2006 (exactly 20 years ago!), Twitter co-founder Jack Dorsey sent the very first tweet ever, "just setting up my twttr".
+
+
+At that time, tweets were limited to 140 characters, inspired by the 160-character SMS standard (leaving a little wiggle room for a username).
+
+Over time, Twitter has added different counting rules for things like username mentions, links, and emojis so they would all take up a more consistent amount of space.
+
+For this challenge, we’ll use a simplified version of that idea:
+
+👤 Usernames (any words starting with @) always count as 20 characters
+🔗 URLs (any words starting with http:// or https://) always count as 23 characters
+😀 Emojis always count as 2 characters (though back in 2006, emojis were barely a thing, so don't worry about testing them!)
+🔤 All other characters, including spaces and punctuation, will count normally.
+Given a tweet string, return the number of characters left out of 140. If the tweet is too long, return the number of characters over the limit as a negative number.
+
+Think of it like a bank account. You start with 140 and spend as you type! 🐦
+
+Examples
+
+You can assume the input uses normal spaces and standard punctuation, and that special tokens like mentions and URLs will appear on their own rather than mixed into other text.
+
+Example 1
+
+Input: "just setting up my twttr"
+Output: 116
+24 plain characters used, 116 remaining. ✅
+
+Example 2
+
+Input: "Check out this link https://www.averylongurlthatgoesonnnnnn.com and this one https://short.co too!"
+Output: 55
+Two URLs each count as exactly 23 characters regardless of length. 55 characters to spare!
+
+
+                                        ------code-----
+    def tweet_balance(tweet):
+    words = tweet.split()
+    total = 0
+
+    for i, word in enumerate(words):
+        if word.startswith('@'):
+            total += 20
+        elif word.startswith('http://') or word.startswith('https://'):
+            total += 23
+        else:
+            total += len(word)
+
+        # add space (except after last word)
+        if i < len(words) - 1:
+            total += 1
+
+    return 140 - total
