@@ -1,0 +1,86 @@
+07. Favorite Band
+# Congrats!
+<h2>Woohoo! (╥﹏╥)</h2>
+<p>You've reached the end of chapter 1 🫶</p>
+
+Here's a refresher on what we went over:
+
+HTML elements, tags, and indentation.
+Heading tags: <h1> - <h6>.
+Paragraph and line breaks: <p>, <br>.
+Text formatting: <b>, <i>, <u>, <s>.
+Unordered and ordered lists: <ul>, <ol>.
+Links and images: <a>, <img>.
+Let's put everything together!
+
+Instructions
+Create a band.html page for your favorite artist using all the elements we learned and at least two types of text formatting.
+
+
+
+It should include the following:
+
+The name of the artist.
+A picture of the artist or album cover.
+A short blurb about the artist.
+A link to the artist's website.
+The members in an unordered list.
+Top 5 favorite songs in an ordered list.
+When it's done, take a screenshot and click the Twitter icon to post your band page! 🎸
+
+
+
+----code-----
+<!-- Write code below 💖 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favorite Artist</title>
+</head>
+<body>
+
+  <!-- Artist Name -->
+  <h1>Imagine Dragons</h1>
+
+  <!-- Artist Image -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Imagine_Dragons_2013.jpg" 
+       alt="Imagine Dragons Band" width="300">
+
+  <!-- Description -->
+  <h2>About the Artist</h2>
+  <p>
+    Imagine Dragons is an American pop rock band known for their energetic music and hit songs like 
+    "Believer" and "Radioactive". Their music blends rock, pop, and electronic elements.
+  </p>
+
+  <!-- Website Link -->
+  <h2>Official Website</h2>
+  <p>
+    Visit their website:
+    <a href="https://www.imaginedragonsmusic.com" target="_blank">
+      Imagine Dragons Official Site
+    </a>
+  </p>
+
+  <!-- Members -->
+  <h2>Band Members</h2>
+  <ul>
+    <li>Dan Reynolds</li>
+    <li>Wayne Sermon</li>
+    <li>Ben McKee</li>
+    <li>Daniel Platzman</li>
+  </ul>
+
+  <!-- Top 5 Songs -->
+  <h2>Top 5 Favorite Songs</h2>
+  <ol>
+    <li>Believer</li>
+    <li>Radioactive</li>
+    <li>Demons</li>
+    <li>Thunder</li>
+    <li>Whatever It Takes</li>
+  </ol>
+
+</body>
+</html>
